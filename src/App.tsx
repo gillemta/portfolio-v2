@@ -10,7 +10,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Tashan's Potfolio</h1>
+      <h1>Tashan's Portfolio</h1>
       <p>
         Coming soon...
       </p>
