@@ -1,68 +1,232 @@
+/* 1. Tailwind Import */
+@import "tailwindcss";
+
+/* 2. Custom CSS Variables (for your Figma colors later) */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Colors - you'll replace these with your Figma palette */
+  --color-primary: #0F1139;
+  --color-secondary: #7161EF;
+  --color-accent: #2AFFC6;
+  --color-background-light: #F2F1ED;
+  --color-background-dark: #0F1139;
+  --color-text: #000000;
+  --color-text-secondary: #FFFFFF;
+  
+  /* Typography - you'll replace these with your Figma fonts */
+  --font-primary: 'Nunito Sans', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-secondary: 'Indie Flower', cursive, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Font Sizes */
+  --font-size-xs: 0.625rem;    /* 10px */
+  --font-size-sm: 0.75rem;    /* 12px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.25rem;    /* 20px */
+  --font-size-xl: 1.75rem;    /* 28px */
+  --font-size-2xl: 2.5rem;   /* 40px */
+  --font-size-3xl: 4rem;   /* 64px */
 
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Line Heights - PLACEHOLDER: Add specific line heights for each font size */
+  --line-height-xs: 1.2;      /* For very small text */
+  --line-height-sm: 1.3;      /* For small text */
+  --line-height-base: 1.5;    /* For body text */
+  --line-height-lg: 1.4;      /* For large text */
+  --line-height-xl: 1.3;      /* For extra large text */
+  --line-height-2xl: 1.2;     /* For headings */
+  --line-height-3xl: 1.1;     /* For very large headings */
+  
+  /* Spacing and other custom values */
+  --container-max-width: 1200px;
+  --section-padding: 4rem;
+
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  --container-sm: 100%;
+  --container-md: 100%;
+  --container-lg: 960px;
+  --container-xl: 1200px;
+  --container-2xl: 1400px;
+  
+  /* Keep Vite's valuable defaults */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* 3. Dark Mode Variables - PLACEHOLDER: Update with your custom dark mode toggle */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--color-background-dark);
+    --color-text: #F2F1ED;
+    --color-text-secondary: #7161EF;
+  }
 }
 
+/* 4. Basic Reset Styles (keeping Vite's good defaults) */
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  font-family: var(--font-primary);
+  color: var(--color-text);
+  background-color: var(--color-background);
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--line-height-2xl);
 }
 
-button {
+h2, h3, h4 { 
+  font-weight: var(--font-weight-bold); 
+  margin: 0;
+}
+
+h2 { 
+  font-size: var(--font-size-xl); 
+  line-height: var(--line-height-xl);
+}
+
+h3 { 
+  font-size: var(--font-size-lg); 
+  line-height: var(--line-height-lg);
+}
+
+h4 { 
+  font-size: var(--font-size-sm); 
+  line-height: var(--line-height-sm);
+}
+
+p { 
+  font-size: var(--font-size-sm); 
+  line-height: var(--line-height-base);
+}
+
+a { text-decoration: none; }
+
+/* 5. Custom Utility Classes (using your variables) */
+.bg-primary { background-color: var(--color-primary); }
+.text-primary { color: var(--color-primary); }
+.font-primary { font-family: var(--font-primary); }
+.font-secondary { font-family: var(--font-secondary); }
+.bg-light { background-color: var(--color-background-light) !important; }
+nav .bg-light { background-color: var(--color-background-light) !important; }
+
+/* 6. Component Styles */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  padding: var(--section-padding) 0;
+}
+
+.logo { 
+  font-family: var(--font-secondary); 
+  font-size: var(--font-size-2xl);
+  margin: 0;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.icon-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon-md {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.footer-text {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.card {
+  width: 288px;
+  height: 230px;
+}
+
+.button-primary {
+  width: 176px;
+  height: 56px;
+  border-radius: 27px;
+  border: none;
+  background-color: var(--color-secondary);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  /* PLACEHOLDER: Add hover state */
+  /* PLACEHOLDER: Add focus state */
+}
+
+.button-secondary {
+  height: 28px;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  border: none;
+  background-color: var(--color-text);
+  color: var(--color-secondary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+  /* PLACEHOLDER: Add hover state */
+  /* PLACEHOLDER: Add focus state */
 }
-button:hover {
-  border-color: #646cff;
-}
+
+/* 7. Accessibility and Focus Styles - PLACEHOLDER: Customize these */
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* PLACEHOLDER: Add custom focus styles for other interactive elements */
+/* PLACEHOLDER: Add hover states for buttons and interactive elements */
+
+/* 8. Smooth Transitions */
+* {
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+/* 9. Responsive Breakpoints - PLACEHOLDER: Add responsive styles */
+/* Mobile First - Base styles are above */
+
+/* PLACEHOLDER: Small devices (tablets) */
+@media (min-width: var(--breakpoint-sm)) {
+  /* Add tablet-specific styles */
+}
+
+/* PLACEHOLDER: Medium devices (laptops) */
+@media (min-width: var(--breakpoint-md)) {
+  /* Add laptop-specific styles */
+}
+
+/* PLACEHOLDER: Large devices (desktops) */
+@media (min-width: var(--breakpoint-lg)) {
+  /* Add desktop-specific styles */
+}
+
+/* PLACEHOLDER: Extra large devices */
+@media (min-width: var(--breakpoint-xl)) {
+  /* Add extra large screen styles */
+}
+
+/* PLACEHOLDER: 2XL devices */
+@media (min-width: var(--breakpoint-2xl)) {
+  /* Add 2XL screen styles */
 }
