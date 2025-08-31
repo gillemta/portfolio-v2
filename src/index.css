@@ -9,7 +9,7 @@
   --color-accent: #2AFFC6;
   --color-background-light: #F2F1ED;
   --color-background-dark: #0F1139;
-  --color-text: #000000;
+  --color-text: #0F1139;
   --color-text-secondary: #FFFFFF;
   
   /* Typography - you'll replace these with your Figma fonts */
@@ -177,9 +177,34 @@ section {
   line-height: var(--line-height-xs);
 }
 
-.card {
+/* .card {
   width: 288px;
   height: 230px;
+} */
+
+.card-base {
+  background-color: var(--color-text-secondary);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  width: 75%
+}
+
+/* Card Size Variants */
+.card-sm { padding: 1rem; }      /* p-4 */
+.card-md { padding: 1.5rem; }    /* p-6 */
+.card-lg { padding: 2rem; }      /* p-8 */
+.card-xl { padding: 2.5rem; }    /* p-10 */
+
+.skill-pill {
+  background-color: #f3f4f6; /* Light grey background */
+  color: var(--color-primary); /* Dark text */
+  padding: 0.375rem 0.75rem; /* py-1.5 px-3 (smaller than before) */
+  border-radius: .5rem; /* Rounded pill shape */
+  font-size: 0.75rem; /* text-xs (smaller font) */
+  font-weight: 500;
+  display: inline-block;
+  white-space: nowrap;
+  text-align: center; /* Ensure text is centered within each pill */
 }
 
 .button-primary {

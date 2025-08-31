@@ -11,10 +11,10 @@ export function Navbar() {
         <nav className="w-full fixed top-0 z-50 bg-primary py-4">
             <div className="navbar-container">
                 <div className="flex justify-between items-center">
-                    <div className="h-16 w-16">
-                        <h3 className="logo text-secondary">
+                    <div className="h-16 w-16 flex justify-center items-center">
+                        <a className="logo text-secondary">
                             TG
-                        </h3>
+                        </a>
                     </div>
 
                     { }
