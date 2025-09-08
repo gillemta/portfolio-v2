@@ -1,6 +1,7 @@
 import { BaseSection } from "../ui/BaseSection";
 import { ProjectCard } from '../ui/ProjectCard';
 import { useProjects } from '../../hooks/useProjects';
+import { GitHubDebug } from '../debug/GitHubDebug';
 
 // Helper function to format relative time
 function formatRelativeTime(timestamp: string): string {
@@ -75,6 +76,11 @@ export function Projects() {
               <p className="text-gray-600">No projects found. Please check your GitHub profile.</p>
             </div>
           )}
+        </div>
+
+        {/* Debug Component - Remove this after diagnosis */}
+        <div className="mt-12">
+          <GitHubDebug />
         </div>
       </div>
     </BaseSection>
