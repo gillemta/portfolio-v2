@@ -96,7 +96,7 @@ export default function ContactForm() {
     }
 
     return (
-        <Card size="lg">
+        <Card size="lg" className="w-3/4 mx-auto">
             { }
             <form className="contact-form text-left" onSubmit={handleSubmit}>
                 <div className="contact-form-group">

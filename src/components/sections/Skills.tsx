@@ -13,7 +13,7 @@ export function Skills() {
       <h2 className="text-primary pb-16 text-center">Skills</h2>
       
       {/* 2x2 Grid Layout */}
-      <div className="grid grid-cols-1 gap-6 justify-items-center">
+      <div className="flex flex-col items-center gap-6">
         <SkillsCard 
             icon={<FaCode size={24} />}
             title="Languages"

@@ -79,6 +79,7 @@ html, body {
   min-height: 100vh;
   font-family: var(--font-primary);
   color: var(--color-text);
+  scroll-behavior: smooth;
 }
 
 h1 {
@@ -186,7 +187,13 @@ section {
   background-color: var(--color-text-secondary);
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  width: 75%
+  width: 100%;
+  max-width: 350px;
+}
+
+/* Override for contact form to allow 75% width */
+.card-base.w-3\/4 {
+  max-width: 75%;
 }
 
 /* Card Size Variants */
@@ -207,6 +214,12 @@ section {
   text-align: center; /* Ensure text is centered within each pill */
 }
 
+/* Skills Card Specific Styling - Make them smaller */
+.card-sm {
+  max-width: 280px; /* Smaller than default card-base */
+  width: 100%;
+}
+
 .button-primary {
   width: 176px;
   height: 56px;
@@ -217,16 +230,29 @@ section {
   font-weight: var(--font-weight-regular);
   font-size: var(--font-size-base);
   line-height: var(--line-height-base);
-  /* PLACEHOLDER: Add hover state */
-  /* PLACEHOLDER: Add focus state */
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.button-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.button-primary:active {
+  transform: translateY(0);
 }
 
 /* Project Card Styles */
 .project-card {
   width: 100%;
-  max-width: 400px; /* Wider than skills cards */
+  max-width: 350px; /* Consistent with card-base */
   padding: 0; /* Remove default padding for custom layout */
   overflow: hidden; /* Ensure image doesn't overflow */
+  margin: 0 auto; /* Center the card within its grid cell */
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Fill the full height of the grid cell */
 }
 
 .project-image-container {
@@ -252,9 +278,9 @@ section {
   background-color: var(--color-primary); /* Dark background */
   color: var(--color-text-secondary); /* White text */
   padding: 1.5rem; /* p-6 */
-  min-height: 200px; /* Ensure consistent height */
   display: flex;
   flex-direction: column;
+  flex-grow: 1; /* Fill remaining space */
   justify-content: space-between;
 }
 
@@ -271,6 +297,7 @@ section {
   margin-bottom: 1rem; /* mb-4 */
   color: var(--color-text-secondary);
   opacity: 0.9;
+  flex-grow: 1; /* Take up available space */
 }
 
 .project-technologies {
@@ -359,6 +386,37 @@ section {
   line-height: var(--line-height-sm);
   border: none;
   cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.form-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.form-button:active {
+  transform: translateY(0);
+}
+
+/* Contact Form Input Hover States */
+input[type="text"], 
+input[type="email"], 
+textarea {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(42, 255, 198, 0.2);
+}
+
+input[type="text"]:hover, 
+input[type="email"]:hover, 
+textarea:hover {
+  opacity: 0.9;
 }
 
 /* 7. Accessibility and Focus Styles - PLACEHOLDER: Customize these */
@@ -373,6 +431,25 @@ button:focus-visible {
 /* 8. Smooth Transitions */
 * {
   transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Navigation and Footer Hover Effects */
+nav button, footer a {
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+nav button:hover, footer a:hover {
+  color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+/* Mobile Navigation Hover Effects */
+@media (max-width: 767px) {
+  nav button:hover {
+    color: var(--color-accent);
+    transform: translateY(-1px);
+  }
 }
 
 /* 9. Responsive Breakpoints - PLACEHOLDER: Add responsive styles */

@@ -9,7 +9,7 @@ export function BaseSection({ id, children, bgColor = "bg-light", className = ""
     return (
         <section 
             id={id} 
-            className={`w-full ${bgColor} min-h-screen flex items-center justify-center ${className}`}
+            className={`w-full ${bgColor} min-h-screen flex items-center justify-center py-10 ${className}`}
         >
             <div className="container">
                 <div className="text-center space-y-4">

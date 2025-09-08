@@ -1,11 +1,18 @@
 import { useState } from "react";
-
-
+import { AnimatePresence, motion } from "framer-motion";
 
 export function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+        setIsMenuOpen(false); // Close mobile menu after clicking
+    }
     
     return (
         <nav className="w-full fixed top-0 z-50 bg-primary py-4">
@@ -20,21 +27,21 @@ export function Navbar() {
                     { }
                     <div className="hidden md:block">
                         <div className="">
-                            <a href="#" className="px-4 py-2 text-secondary">
+                            <button onClick={() => scrollToSection('home')} className="px-4 py-2 text-secondary hover:text-accent transition-colors">
                                 Home
-                            </a>
-                            <a href="#" className="px-4 py-2 text-secondary">
+                            </button>
+                            <button onClick={() => scrollToSection('about')} className="px-4 py-2 text-secondary hover:text-accent transition-colors">
                                 About Me
-                            </a>
-                            <a href="#" className="px-4 py-2 text-secondary">
+                            </button>
+                            <button onClick={() => scrollToSection('skills')} className="px-4 py-2 text-secondary hover:text-accent transition-colors">
                                 Skills
-                            </a>
-                            <a href="#" className="px-4 py-2 text-secondary">
+                            </button>
+                            <button onClick={() => scrollToSection('projects')} className="px-4 py-2 text-secondary hover:text-accent transition-colors">
                                 Projects
-                            </a>
-                            <a href="#" className="px-4 py-2 text-secondary">
+                            </button>
+                            <button onClick={() => scrollToSection('contact')} className="px-4 py-2 text-secondary hover:text-accent transition-colors">
                                 Contact
-                            </a>
+                            </button>
                         </div>
                     </div>
 
@@ -51,27 +58,66 @@ export function Navbar() {
                     </div>
 
                     { }
-                    {isMenuOpen && (
-                        <div className="md:hidden absolute top-16 left-0 right-0 z-10 bg-light text-secondary">
-                            <div className="flex flex-col space-y-2 p-4">
-                                <a onClick={toggleMenu} href="#" className="block py-2 px-4">
-                                    Home
-                                </a>
-                                <a onClick={toggleMenu} href="#" className="block py-2 px-4">
-                                    About Me
-                                </a>
-                                <a onClick={toggleMenu} href="#" className="block py-2 px-4">
-                                    Skills
-                                </a>
-                                <a onClick={toggleMenu} href="#" className="block py-2 px-4">
-                                    Projects
-                                </a>
-                                <a onClick={toggleMenu} href="#" className="block py-2 px-4">
-                                    Contact
-                                </a>
-                            </div>
-                        </div>
-                    )}
+                    <AnimatePresence>
+                        {isMenuOpen && (
+                            <motion.div 
+                                className="md:hidden absolute top-20 left-0 right-0 z-10 text-secondary"
+                                style={{ backgroundColor: 'var(--color-primary)' }}
+                                initial={{ opacity: 0, y: -20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                            >
+                                <div className="flex flex-col space-y-2 p-4">
+                                    <motion.button 
+                                        onClick={() => scrollToSection('home')} 
+                                        className="block py-2 px-4 text-left hover:text-accent transition-colors"
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 0.1, duration: 0.2 }}
+                                    >
+                                        Home
+                                    </motion.button>
+                                    <motion.button 
+                                        onClick={() => scrollToSection('about')} 
+                                        className="block py-2 px-4 text-left hover:text-accent transition-colors"
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 0.15, duration: 0.2 }}
+                                    >
+                                        About Me
+                                    </motion.button>
+                                    <motion.button 
+                                        onClick={() => scrollToSection('skills')} 
+                                        className="block py-2 px-4 text-left hover:text-accent transition-colors"
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 0.2, duration: 0.2 }}
+                                    >
+                                        Skills
+                                    </motion.button>
+                                    <motion.button 
+                                        onClick={() => scrollToSection('projects')} 
+                                        className="block py-2 px-4 text-left hover:text-accent transition-colors"
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 0.25, duration: 0.2 }}
+                                    >
+                                        Projects
+                                    </motion.button>
+                                    <motion.button 
+                                        onClick={() => scrollToSection('contact')} 
+                                        className="block py-2 px-4 text-left hover:text-accent transition-colors"
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: 0.3, duration: 0.2 }}
+                                    >
+                                        Contact
+                                    </motion.button>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
             </div>
 
