@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from 'react'; 
 import { fetchPinnedRepositories } from '../../services/githubService';
 
 export function GitHubDebug() {
@@ -38,8 +38,14 @@ export function GitHubDebug() {
         firstProject: projects[0] ? {
           name: projects[0].name,
           hasTopics: projects[0].topics?.length > 0,
-          topicsCount: projects[0].topics?.length || 0
-        } : null
+          topicsCount: projects[0].topics?.length || 0,
+          topics: projects[0].topics || []
+        } : null,
+        allProjects: projects.map(p => ({
+          name: p.name,
+          topics: p.topics || [],
+          topicsCount: p.topics?.length || 0
+        }))
       };
     } catch (error: any) {
       info.apiTest = {
