@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { fetchPinnedRepositories } from '../../services/githubService';
 
 export function GitHubDebug() {
