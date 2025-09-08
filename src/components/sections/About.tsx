@@ -6,7 +6,7 @@ export function About() {
             <h2 className="text-primary py-12">About Me</h2>
             <div className="flex justify-center mb-12">
                 <img 
-                    src="/src/assets/profile.jpeg" 
+                    src="/profile.jpeg" 
                     alt="Tashan Gillem" 
                     className="w-64 h-64 rounded-full object-cover object-center shadow-lg" 
                 />
