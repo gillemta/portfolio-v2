@@ -3,7 +3,7 @@ import { BaseSection } from "../ui/BaseSection"
 export function About() {
     return (
         <BaseSection id="about">
-            <h2 className="text-primary py-12">About Me</h2>
+            <h2 className="text-primary pb-8">About Me</h2>
             <div className="flex justify-center mb-12">
                 <img 
                     src="/profile.jpeg" 

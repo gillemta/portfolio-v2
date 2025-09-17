@@ -3,8 +3,8 @@ import ContactForm from "../forms/ContactForm"
 
 export function Contact() {
     return (
-        <BaseSection id="contact">
-            <h2 className="text-primary pb-16 text-center">Contact</h2>
+        <BaseSection id="contact" className="pb-16">
+            <h2 className="text-primary pb-8 text-center">Contact</h2>
             
             { }
             <div className= "flex justify-center">

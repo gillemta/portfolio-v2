@@ -96,7 +96,7 @@ export default function ContactForm() {
     }
 
     return (
-        <Card size="lg" className="w-3/4 mx-auto">
+        <Card size="lg" className="w-full mx-auto">
             { }
             <form className="contact-form text-left" onSubmit={handleSubmit}>
                 <div className="contact-form-group">
@@ -105,8 +105,8 @@ export default function ContactForm() {
                         type="text" 
                         id="name" 
                         name="name" 
-                        value={formData.name}  // ← Add this
-                        onChange={(e) => setFormData({...formData, name: e.target.value})}  // ← Add this
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
                         className="w-full h-8 px-2 border border-gray-200 rounded"
                     />
                     {errors.name && <div className="text-red-500 text-sm mt-1">{errors.name}</div>}

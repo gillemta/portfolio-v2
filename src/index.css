@@ -146,8 +146,6 @@ nav .bg-light { background-color: var(--color-background-light) !important; }
 section {
   width: 100% !important;
   max-width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
 .section {
@@ -191,9 +189,11 @@ section {
   max-width: 350px;
 }
 
-/* Override for contact form to allow 75% width */
-.card-base.w-3\/4 {
-  max-width: 75%;
+
+/* Contact form specific width - full width until 500px max */
+.card-base.w-full {
+  max-width: 800px;
+  width: 100%;
 }
 
 /* Card Size Variants */

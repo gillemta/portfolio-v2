@@ -46,36 +46,34 @@ export function Projects() {
   }
 
   return (
-    <BaseSection className="mb-16" id="projects" bgColor="bg-light">
-      <div className="w-full max-w-6xl mx-auto">
-        <h2 className="text-primary pb-16 text-center">Projects</h2>
+    <BaseSection id="projects" bgColor="bg-light">
+      <h2 className="text-primary pb-8 text-center">Projects</h2>
 
-        {lastUpdated && (
-          <p className="text-gray-600 text-sm text-center mb-8">
-            Last updated: {formatRelativeTime(lastUpdated)}
-          </p>
+      {lastUpdated && (
+        <p className="text-gray-600 text-sm text-center mb-8">
+          Last updated: {formatRelativeTime(lastUpdated)}
+        </p>
+      )}
+      
+      {/* 3 Cards Vertically */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center max-w-6xl mx-auto">
+        {projects.length > 0 ? (  
+          projects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              image={project.imageUrl}
+              title={project.name}
+              description={project.description}
+              githubUrl={project.githubUrl}
+              liveUrl={project.liveUrl}
+              technologies={project.topics}
+            />
+          ))
+        ) : (
+          <div className="text-center py-16">
+            <p className="text-gray-600">No projects found. Please check your GitHub profile.</p>
+          </div>
         )}
-        
-        {/* 3 Cards Vertically */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
-          {projects.length > 0 ? (  
-            projects.map((project, index) => (
-              <ProjectCard
-                key={index}
-                image={project.imageUrl}
-                title={project.name}
-                description={project.description}
-                githubUrl={project.githubUrl}
-                liveUrl={project.liveUrl}
-                technologies={project.topics}
-              />
-            ))
-          ) : (
-            <div className="text-center py-16">
-              <p className="text-gray-600">No projects found. Please check your GitHub profile.</p>
-            </div>
-          )}
-        </div>
       </div>
     </BaseSection>
   );

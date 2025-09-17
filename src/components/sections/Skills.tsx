@@ -10,33 +10,41 @@ import {
 export function Skills() {
   return (
     <BaseSection id="skills">
-      <h2 className="text-primary pb-16 text-center">Skills</h2>
+      <h2 className="text-primary pb-8 text-center">Skills</h2>
       
       {/* 2x2 Grid Layout */}
-      <div className="flex flex-col items-center gap-6">
-        <SkillsCard 
-            icon={<FaCode size={24} />}
-            title="Languages"
-            skills={["C#", "Java", "Python", "SQL", "JavaScript", "C++", "Go"]}
-        />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <div className="flex justify-center">
+          <SkillsCard 
+              icon={<FaCode size={24} />}
+              title="Languages"
+              skills={["C#", "Java", "Python", "SQL", "JavaScript", "C++", "Go"]}
+          />
+        </div>
 
-        <SkillsCard
-          icon={<FaServer size={24} />}
-          title="Backend Development"
-          skills={[".NET Core", "Spring Boot", "Flask", "Express", "Node.js"]}
-        />
+        <div className="flex justify-center">
+          <SkillsCard
+            icon={<FaServer size={24} />}
+            title="Backend Development"
+            skills={[".NET Core", "Spring Boot", "Flask", "Express", "Node.js"]}
+          />
+        </div>
         
-        <SkillsCard
-          icon={<FaReact size={24} />}
-          title="Frontend & Web"
-          skills={["Angular", "JavaScript", "React", "TypeScript"]}
-        />
+        <div className="flex justify-center">
+          <SkillsCard
+            icon={<FaReact size={24} />}
+            title="Frontend & Web"
+            skills={["Angular", "JavaScript", "React", "TypeScript"]}
+          />
+        </div>
         
-        <SkillsCard
-          icon={<FaCloud size={24} />}
-          title="DevOps & Cloud"
-          skills={["Git", "Docker", "Azure", "AWS", "Jenkins", "Jira"]}
-        />
+        <div className="flex justify-center">
+          <SkillsCard
+            icon={<FaCloud size={24} />}
+            title="DevOps & Cloud"
+            skills={["Git", "Docker", "Azure", "AWS", "Jenkins", "Jira"]}
+          />
+        </div>
         </div>
     </BaseSection>
   );
