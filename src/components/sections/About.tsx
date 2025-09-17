@@ -11,7 +11,7 @@ export function About() {
                     className="w-64 h-64 rounded-full object-cover object-center shadow-lg" 
                 />
             </div>
-            <p className="text-justify hyphens-auto leading-relaxed max-w-prose mx-auto pb-8">
+            <p className="text-left leading-relaxed max-w-prose mx-auto pb-8">
                 I am a backend-focused software engineer passionate about building reliable and scalable APIs while modernizing enterprise systems. 
                 At Western & Southern Financial Group, I have architected .NET Core services, streamlined CI/CD pipelines, and led migrations that improved efficiency across dozens of applications. 
                 My foundation also includes frontend experience with frameworks such as Angular, Blazor, and React, which I am currently using to build this portfolio. 

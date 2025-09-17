@@ -12,7 +12,7 @@ export function SkillsCard({ icon, title, skills }: SkillsCardProps) {
     <Card size="sm">
       {/* Header: Icon + Title */}
       <div className="flex flex-col items-center mb-4">
-        <div className="text-primary mr-3">
+        <div className="text-primary flex justify-center items-center [&>svg]:m-0">
           {icon}
         </div>
         <h3 className="text-primary font-bold text-lg">{title}</h3>

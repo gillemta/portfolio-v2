@@ -47,7 +47,7 @@ export function Projects() {
 
   return (
     <BaseSection id="projects" bgColor="bg-light">
-      <h2 className="text-primary pb-8 text-center">Projects</h2>
+      <h2 className="text-primary pb-4 text-center">Projects</h2>
 
       {lastUpdated && (
         <p className="text-gray-600 text-sm text-center mb-8">
