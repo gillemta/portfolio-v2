@@ -140,7 +140,7 @@ function transformGraphQLToProject(repo: GraphQLRepository): Project {
     name: repo.name,
     description: repo.description || 'No description available',
     topics: repo.repositoryTopics.nodes.map(topic => topic.topic.name),
-    imageUrl: `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${repo.name}/assets/project-image.jpg`,
+    imageUrl: `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${repo.name}/main/assets/project-image.jpg`,
     githubUrl: repo.url,
     liveUrl: repo.homepageUrl || undefined
   };
@@ -152,7 +152,7 @@ function transformRESTToProject(repo: any): Project {
     name: repo.name,
     description: repo.description || 'No description available',
     topics: repo.topics || [],
-    imageUrl: `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${repo.name}/assets/project-image.jpg`,
+    imageUrl: `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${repo.name}/main/assets/project-image.jpg`,
     githubUrl: repo.html_url,
     liveUrl: repo.homepage || undefined
   };
